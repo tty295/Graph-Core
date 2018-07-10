@@ -1,6 +1,6 @@
-package yyzh.graph.core;
+package yyzh.core;
 
-import yyzh.graph.core.conllision.ICollision;
+import yyzh.graph.conllision.ICollision;
 
 public interface IElement {
 

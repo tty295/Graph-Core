@@ -1,7 +1,13 @@
-package yyzh.graph.core.shape;
+package yyzh.graph.shape;
 
-public class Round extends BoundsShape<Round>{
+/**
+ * 圆
+ * */
+public class Round extends Shape {
 	
+	protected Point center;
+	protected int radius;
+
 	public Round(Point center, int radius) {
 		this.center = center;
 		this.radius = radius;
@@ -11,9 +17,6 @@ public class Round extends BoundsShape<Round>{
 		this.center = new Point(x, y);
 		this.radius = radius;
 	}
-	
-	private Point center;
-	private int radius;
 	public Point getCenter() {
 		return center;
 	}
@@ -58,10 +61,11 @@ public class Round extends BoundsShape<Round>{
 			return false;
 		return true;
 	}
-
+	
+	
 	@Override
-	public Round copy() {
-		return new Round(center.copy(), radius);
+	public Round clone() {
+		return new Round(center.clone(), radius);
 	}
 
 	@Override
@@ -73,10 +77,4 @@ public class Round extends BoundsShape<Round>{
 		this.radius = radius;
 	}
 
-	@Override
-	public Rectangle getBoundsBox() {
-		int x = center.getX() - radius / 2;
-		int y = center.getY() - radius / 2;
-		return new Rectangle(x, y, radius, radius);
-	}
 }

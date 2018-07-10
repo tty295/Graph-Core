@@ -1,4 +1,4 @@
-package yyzh.graph.core.shape;
+package yyzh.graph.shape;
 
 import java.util.List;
 

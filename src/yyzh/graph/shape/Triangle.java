@@ -1,12 +1,15 @@
-package yyzh.graph.core.shape;
+package yyzh.graph.shape;
 
 import java.util.Arrays;
 
-public class Triangle extends AbstractPolygon<Triangle> implements IPolygon {
+/**
+ * 三角形
+ * */
+public class Triangle extends AbstractPolygon {
 
-	private Point a;
-	private Point b;
-	private Point c;
+	protected Point a;
+	protected Point b;
+	protected Point c;
 	
 	public Triangle(Point a, Point b, Point c) {
 		super();
@@ -14,11 +17,6 @@ public class Triangle extends AbstractPolygon<Triangle> implements IPolygon {
 		this.b = b;
 		this.c = c;
 		points = Arrays.asList(a, b, c);
-	}
-
-	@Override
-	public Triangle copy() {
-		return new Triangle(a.copy(), b.copy(), c.copy());
 	}
 
 	public Point getA() {
@@ -31,6 +29,11 @@ public class Triangle extends AbstractPolygon<Triangle> implements IPolygon {
 
 	public Point getC() {
 		return c;
+	}
+	
+	@Override
+	public Triangle clone() {
+		return new Triangle(a, b, c);
 	}
 
 }

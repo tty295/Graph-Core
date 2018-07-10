@@ -1,28 +1,29 @@
-package yyzh.graph.core.shape;
+package yyzh.graph.shape;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ShapeGroup extends Shape<ShapeGroup> {
 
-	private List<IShape<?>> shapes;
+public class ShapeGroup extends Shape {
+
+	private List<Shape> shapes;
 	
 	public ShapeGroup() {
 		shapes = new ArrayList<>();
 	}
 	
-	public ShapeGroup(IShape<?>... shapes) {
+	public ShapeGroup(Shape... shapes) {
 		this.shapes = new ArrayList<>(Arrays.asList(shapes));
 	}
 	
-	public ShapeGroup(List<IShape<?>> shapes) {
+	public ShapeGroup(List<Shape> shapes) {
 		this.shapes = new ArrayList<>(shapes);
 	}
 	
 	@Override
-	public ShapeGroup copy() {
-		return new ShapeGroup(IShape.copyGeneric(shapes));
+	public ShapeGroup clone() {
+		return new ShapeGroup(Shape.copyGeneric(shapes));
 	}
 
 	@Override
@@ -30,11 +31,11 @@ public class ShapeGroup extends Shape<ShapeGroup> {
 		shapes.forEach(s -> s.move(dx, dy));
 	}
 
-	public void add(Shape<?> shape) {
+	public void add(Shape shape) {
 		shapes.add(shape);
 	}
 	
-	public boolean remove(Shape<?> shape) {
+	public boolean remove(Shape shape) {
 		return shapes.remove(shape);
 	}
 }

@@ -1,4 +1,4 @@
-package yyzh.graph.core.exception;
+package yyzh.graph.exception;
 
 public class TypeException extends CodingException {
 

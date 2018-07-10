@@ -1,7 +1,12 @@
-package yyzh.graph.core.shape;
+package yyzh.graph.shape;
 
-public class Point extends Shape<Point>{
-	
+/**
+ * 点
+ * */
+public class Point extends Shape {
+	protected int x;
+	protected int y;
+
 	public Point() {}
 	
 	public Point(int x, int y) {
@@ -9,8 +14,6 @@ public class Point extends Shape<Point>{
 		this.y = y;
 	}
 	
-	private int x;
-	private int y;
 	public int getX() {
 		return x;
 	}
@@ -37,7 +40,7 @@ public class Point extends Shape<Point>{
 	
 	@Override
 	public String toString() {
-		return "Point [x=" + x + ", y=" + y + "]";
+		return "(" + x + ", " + y + ")";
 	}
 	@Override
 	public int hashCode() {
@@ -64,8 +67,28 @@ public class Point extends Shape<Point>{
 	}
 
 	@Override
-	public Point copy() {
+	public Point clone() {
 		return new Point(x, y);
+	}
+	
+	/**
+	 * 计算两点间距离
+	 * */
+	public static double distance(Point a, Point b) {
+		if(a.x == b.x) return Math.abs(a.y - b.y);
+		if(a.y == b.y) return Math.abs(a.x - b.x);
+		
+		int x = Math.abs(a.x - b.x);
+		int y = Math.abs(a.y - b.y);
+		return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+	}
+
+	public static int xDistance(Point a, Point b) {
+		return Math.abs(a.x - b.x);
+	}
+	
+	public static int yDistance(Point a, Point b) {
+		return Math.abs(a.y - b.y);
 	}
 	
 }

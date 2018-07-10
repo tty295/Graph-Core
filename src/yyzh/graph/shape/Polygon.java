@@ -1,4 +1,4 @@
-package yyzh.graph.core.shape;
+package yyzh.graph.shape;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,9 +6,9 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * 多边形
+ * 任意多边形
  * */
-public class Polygon extends AbstractPolygon<Polygon> implements IPolygon {
+public class Polygon extends AbstractPolygon {
 
 	public Polygon() { points = new ArrayList<>(); }
 	
@@ -45,14 +45,8 @@ public class Polygon extends AbstractPolygon<Polygon> implements IPolygon {
 	}
 	
 	@Override
-	public List<Point> points() {
-		return points;
+	public Polygon clone() {
+		return new Polygon(Shape.copyExact(points, Point.class));
 	}
 
-	@Override
-	public Polygon copy() {
-		return new Polygon(IShape.copyExact(points));
-	}
-
-	
 }

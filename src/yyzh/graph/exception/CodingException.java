@@ -1,4 +1,4 @@
-package yyzh.graph.core.exception;
+package yyzh.graph.exception;
 
 public class CodingException extends RuntimeException {
 	private static final long serialVersionUID = 238367028360299742L;

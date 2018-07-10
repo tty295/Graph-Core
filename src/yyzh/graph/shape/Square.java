@@ -1,14 +1,12 @@
-package yyzh.graph.core.shape;
+package yyzh.graph.shape;
 
+/**
+ * 正方形
+ * */
 public class Square extends Rectangle {
 
 	public Square(int x, int y, int length) {
 		super(x, y, length, length);
-	}
-
-	@Override
-	public Square copy() {
-		return new Square(x, y, height);
 	}
 
 	public void resize(int length) {
@@ -24,4 +22,10 @@ public class Square extends Rectangle {
 	public void resize(int width, int height) {
 		resize(width);
 	}
+
+	@Override
+	public Square clone() {
+		return new Square(x, y, height);
+	}
+	
 }
